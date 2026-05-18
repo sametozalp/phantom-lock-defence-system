@@ -23,6 +23,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(phantom-lock-defence-system
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        Map.qml
+        resources.qrc
+        resources.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET phantom-lock-defence-system APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
