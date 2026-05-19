@@ -25,14 +25,9 @@ void UdpReceiver::readData()
         QByteArray datagram;
         datagram.resize(udpSocket->pendingDatagramSize());
 
-        QHostAddress sender;
-        quint16 senderPort;
+        udpSocket->readDatagram(datagram.data(), datagram.size());
 
-        udpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
-
-        QJsonParseError parseError;
-
-        QJsonDocument doc = QJsonDocument::fromJson(datagram, &parseError);
+        QJsonDocument doc = QJsonDocument::fromJson(datagram);
 
         QJsonObject obj = doc.object();
 
@@ -47,14 +42,5 @@ void UdpReceiver::readData()
         MapObject *mapObject = new MapObject(id, lat, lon, name, distance, altitude,speed);
 
         mapObjects.push_back(mapObject);
-
-        qDebug() << "----- MAP OBJECT -----";
-        qDebug() << "Id:" << id;
-        qDebug() << "Name:" << name;
-        qDebug() << "Lat:" << lat;
-        qDebug() << "Lon:" << lon;
-        qDebug() << "Distance:" << distance;
-        qDebug() << "Altitude:" << altitude;
-        qDebug() << "Speed:" << speed;
     }
 }
