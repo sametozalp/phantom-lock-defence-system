@@ -6,11 +6,12 @@
 class MapObject
 {
 public:
-    MapObject(int lat, int lon, std::string name);
+    MapObject(int id, float lat, float lon, std::string name);
 
 private:
-    int lat;
-    int lon;
+    int id;
+    float lat;
+    float lon;
     std::string name;
 };
 

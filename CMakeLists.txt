@@ -33,6 +33,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         presentation/component/map/Map.qml
         resources.qrc
         model/mapobject.h model/mapobject.cpp
+        network/udpreceiver.h network/udpreceiver.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET phantom-lock-defence-system APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -64,6 +65,7 @@ target_include_directories(phantom-lock-defence-system PRIVATE
     ${CMAKE_SOURCE_DIR}/presentation/screen
     ${CMAKE_SOURCE_DIR}/presentation/component
     ${CMAKE_SOURCE_DIR}/presentation/ui
+    ${CMAKE_SOURCE_DIR}/model
 
 )
 
