@@ -149,7 +149,7 @@
             </property>
             <property name="source">
              <url>
-              <string>qrc:/Map.qml</string>
+              <string>qrc:/presentation/component/map/Map.qml</string>
              </url>
             </property>
            </widget>

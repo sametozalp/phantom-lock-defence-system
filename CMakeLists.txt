@@ -14,17 +14,20 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Location Position
 
 set(PROJECT_SOURCES
         main.cpp
-        dashboardwindow.cpp
-        dashboardwindow.h
-        dashboardwindow.ui
+        presentation/screen/dashboardwindow.cpp
+        presentation/screen/dashboardwindow.h
+        presentation/ui/dashboardwindow.ui
+)
+
+set(CMAKE_AUTOUIC_SEARCH_PATHS
+    ${CMAKE_CURRENT_SOURCE_DIR}/presentation/ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(phantom-lock-defence-system
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        Map.qml
-        resources.qrc
+        presentation/component/map/Map.qml
         resources.qrc
     )
 # Define target properties for Android with Qt 6 as:
@@ -50,6 +53,13 @@ target_link_libraries(phantom-lock-defence-system PRIVATE
     Qt${QT_VERSION_MAJOR}::Location
     Qt${QT_VERSION_MAJOR}::Positioning
     Qt${QT_VERSION_MAJOR}::QuickWidgets
+)
+
+target_include_directories(phantom-lock-defence-system PRIVATE
+    ${CMAKE_SOURCE_DIR}/presentation/screen
+    ${CMAKE_SOURCE_DIR}/presentation/component
+    ${CMAKE_SOURCE_DIR}/presentation/ui
+
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
