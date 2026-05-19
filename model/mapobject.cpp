@@ -9,3 +9,7 @@ MapObject::MapObject(int id, float lat, float lon, std::string name, float dista
     this->distance = distance;
     this->altitude = altitude;
 }
+
+int MapObject::getId() {
+    return this->id;
+}

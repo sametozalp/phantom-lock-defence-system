@@ -5,7 +5,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    DashboardWindow w;
+    DashboardState state;
+    DashboardWindow w(&state);
     w.show();
     return QApplication::exec();
 }

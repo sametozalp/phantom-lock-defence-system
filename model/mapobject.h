@@ -8,6 +8,8 @@ class MapObject
 public:
     MapObject(int id, float lat, float lon, std::string name, float distance, float altitude, int speed);
 
+    int getId();
+
 private:
     int id;
     float lat;

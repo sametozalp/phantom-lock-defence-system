@@ -1,14 +1,27 @@
 #include "dashboardwindow.h"
 #include "./ui_dashboardwindow.h"
+#include <iostream>
 
-DashboardWindow::DashboardWindow(QWidget *parent)
+DashboardWindow::DashboardWindow(DashboardState *state, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::DashboardWindow)
+    , state(state)
 {
     ui->setupUi(this);
+    connect(state, &DashboardState::objectsChanged, this, &DashboardWindow::refreshUI);
 }
 
 DashboardWindow::~DashboardWindow()
 {
     delete ui;
+}
+
+void DashboardWindow::refreshUI()
+{
+    std::vector<MapObject> mapObject = state->getMapObjects();
+
+    for (MapObject m: mapObject)
+    {
+        std::cout << m.getId() << std::endl;
+    }
 }

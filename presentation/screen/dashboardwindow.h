@@ -2,6 +2,7 @@
 #define DASHBOARDWINDOW_H
 
 #include <QMainWindow>
+#include "dashboardstate.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -14,10 +15,14 @@ class DashboardWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit DashboardWindow(QWidget *parent = nullptr);
+    explicit DashboardWindow(DashboardState *state, QWidget *parent = nullptr);
     ~DashboardWindow() override;
+
+private slots:
+    void refreshUI();
 
 private:
     Ui::DashboardWindow *ui;
+    DashboardState *state;
 };
 #endif // DASHBOARDWINDOW_H
