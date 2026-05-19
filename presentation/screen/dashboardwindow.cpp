@@ -14,8 +14,6 @@ DashboardWindow::DashboardWindow(DashboardViewModel *viewmodel, DashboardState *
 
 DashboardWindow::~DashboardWindow()
 {
-    delete viewmodel;
-    delete state;
     delete ui;
 }
 

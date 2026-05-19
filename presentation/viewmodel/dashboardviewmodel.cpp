@@ -5,8 +5,6 @@ DashboardViewModel::DashboardViewModel(DashboardState *state, UdpReceiver *udpRe
 }
 
 DashboardViewModel::~DashboardViewModel(){
-    delete state;
-    delete udpReceiver;
 }
 
 void DashboardViewModel::onRawDataReceived(std::vector<MapObject> mapObjects)

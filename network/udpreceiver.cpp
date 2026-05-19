@@ -9,7 +9,6 @@ UdpReceiver::UdpReceiver() {
 }
 
 UdpReceiver::~UdpReceiver() {
-    delete udpSocket;
 }
 
 void UdpReceiver::readData()
