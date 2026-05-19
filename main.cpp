@@ -2,15 +2,13 @@
 
 #include <QApplication>
 #include "udpreceiver.h"
-#include "dashboardviewmodel.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     UdpReceiver udpReceiver;
-    DashboardState state;
-    DashboardViewModel dashboardViewModel(&state, &udpReceiver);
-    DashboardWindow w(&dashboardViewModel, &state);
+    DashboardState state(&udpReceiver);
+    DashboardWindow w(&state);
     w.show();
     return QApplication::exec();
 }

@@ -1,12 +1,16 @@
 #include "dashboardstate.h"
+#include <iostream>
 
-DashboardState::DashboardState() {}
+DashboardState::DashboardState(UdpReceiver *udpReceiver): udpReceiver(udpReceiver) {
+    connect(udpReceiver, &UdpReceiver::dataReceived, this, &DashboardState::onRawDataReceived);
+}
 
 std::vector<MapObject> &DashboardState::getMapObjects() {
     return this->mapObjects;
 }
 
-void DashboardState::onMapObjectReceived(std::vector<MapObject> &mapObjects) {
-    this->mapObjects = mapObjects;
-    emit objectsChanged(this->mapObjects);
+void DashboardState::onRawDataReceived(std::vector<MapObject> mapObjects)
+{
+    if(mapObjects.size() > 0)
+        emit objectsUpdated(mapObjects);
 }
