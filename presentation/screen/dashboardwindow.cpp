@@ -13,6 +13,7 @@ DashboardWindow::DashboardWindow(DashboardState *state, QWidget *parent)
 
 DashboardWindow::~DashboardWindow()
 {
+    delete state;
     delete ui;
 }
 
