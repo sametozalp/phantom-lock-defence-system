@@ -8,6 +8,7 @@ class UdpReceiver
 {
 public:
     UdpReceiver();
+    ~UdpReceiver();
 
 private:
     std::vector<MapObject*> mapObjects;
