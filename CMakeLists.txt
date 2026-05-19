@@ -68,6 +68,7 @@ target_include_directories(phantom-lock-defence-system PRIVATE
     ${CMAKE_SOURCE_DIR}/presentation/ui
     ${CMAKE_SOURCE_DIR}/model
     ${CMAKE_SOURCE_DIR}/presentation/state
+    ${CMAKE_SOURCE_DIR}/network
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
