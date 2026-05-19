@@ -17,6 +17,7 @@ set(PROJECT_SOURCES
         presentation/screen/dashboardwindow.cpp
         presentation/screen/dashboardwindow.h
         presentation/ui/dashboardwindow.ui
+        topbar.h topbar.cpp topbar.ui
 )
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS
@@ -56,6 +57,7 @@ target_link_libraries(phantom-lock-defence-system PRIVATE
 )
 
 target_include_directories(phantom-lock-defence-system PRIVATE
+    ${CMAKE_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/presentation/screen
     ${CMAKE_SOURCE_DIR}/presentation/component
     ${CMAKE_SOURCE_DIR}/presentation/ui
