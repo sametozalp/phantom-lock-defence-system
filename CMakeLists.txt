@@ -17,7 +17,7 @@ set(PROJECT_SOURCES
         presentation/screen/dashboardwindow.cpp
         presentation/screen/dashboardwindow.h
         presentation/ui/dashboardwindow.ui
-        topbar.h topbar.cpp topbar.ui
+        presentation/component/topbar.h presentation/component/topbar.cpp presentation/ui/topbar.ui
 )
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS
