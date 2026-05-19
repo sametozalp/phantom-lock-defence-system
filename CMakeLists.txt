@@ -19,6 +19,7 @@ set(PROJECT_SOURCES
         presentation/ui/dashboardwindow.ui
         presentation/component/topbar.h presentation/component/topbar.cpp presentation/ui/topbar.ui
         presentation/component/vehicledetail.h presentation/component/vehicledetail.cpp presentation/ui/vehicledetail.ui
+        presentation/component/alarmdetail.h presentation/component/alarmdetail.cpp presentation/ui/alarmdetail.ui
 )
 
 set(CMAKE_AUTOUIC_SEARCH_PATHS
