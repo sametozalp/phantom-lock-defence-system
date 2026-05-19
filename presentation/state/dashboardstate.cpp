@@ -8,5 +8,5 @@ std::vector<MapObject> &DashboardState::getMapObjects() {
 
 void DashboardState::onMapObjectReceived(std::vector<MapObject> &mapObjects) {
     this->mapObjects = mapObjects;
-    emit objectsChanged();
+    emit objectsChanged(this->mapObjects);
 }

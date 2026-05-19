@@ -2,9 +2,10 @@
 #include "./ui_dashboardwindow.h"
 #include <iostream>
 
-DashboardWindow::DashboardWindow(DashboardState *state, QWidget *parent)
+DashboardWindow::DashboardWindow(DashboardViewModel *viewmodel, DashboardState *state, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::DashboardWindow)
+    , viewmodel(viewmodel)
     , state(state)
 {
     ui->setupUi(this);
@@ -13,16 +14,15 @@ DashboardWindow::DashboardWindow(DashboardState *state, QWidget *parent)
 
 DashboardWindow::~DashboardWindow()
 {
+    delete viewmodel;
     delete state;
     delete ui;
 }
 
-void DashboardWindow::refreshUI()
+void DashboardWindow::refreshUI(std::vector<MapObject> &mapObjects)
 {
-    std::vector<MapObject> mapObject = state->getMapObjects();
-
-    for (MapObject m: mapObject)
+    for (MapObject m: mapObjects)
     {
-        std::cout << m.getId() << std::endl;
+        // show on map
     }
 }

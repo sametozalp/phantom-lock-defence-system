@@ -1,8 +1,7 @@
 #include "udpreceiver.h"
+#include <iostream>
 
 UdpReceiver::UdpReceiver() {
-    //mapObjects.push_back(new MapObject(1, 39.9251164, 32.6899684, "UAV-01", 12.2, 450, 54));
-
     udpSocket = new QUdpSocket(this);
     udpSocket->bind(QHostAddress::AnyIPv4, 5000);
 
@@ -10,16 +9,12 @@ UdpReceiver::UdpReceiver() {
 }
 
 UdpReceiver::~UdpReceiver() {
-    for(MapObject *m: mapObjects) {
-        delete m;
-    }
-    mapObjects.clear();
-
     delete udpSocket;
 }
 
 void UdpReceiver::readData()
 {
+    std::vector<MapObject> mapObjects;
     while(udpSocket->hasPendingDatagrams()) // okunammış udp paketi var mı ?
     {
         QByteArray datagram;
@@ -39,8 +34,12 @@ void UdpReceiver::readData()
         float altitude = static_cast<float>(obj["Altitude"].toDouble());
         int speed = obj["Speed"].toInt();
 
-        MapObject *mapObject = new MapObject(id, lat, lon, name, distance, altitude,speed);
+        MapObject mapObject(id, lat, lon, name, distance, altitude,speed);
 
         mapObjects.push_back(mapObject);
+    }
+
+    if (!mapObjects.empty()) {
+        emit dataReceived(mapObjects);
     }
 }

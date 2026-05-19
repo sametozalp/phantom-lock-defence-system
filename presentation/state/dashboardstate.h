@@ -16,7 +16,7 @@ public slots:
     void onMapObjectReceived(std::vector<MapObject> &mapObjects);
 
 signals:
-    void objectsChanged();
+    void objectsChanged(std::vector<MapObject> &mapObjects);
 
 private:
     std::vector<MapObject> mapObjects;

@@ -11,6 +11,7 @@
 
 class UdpReceiver: public QObject
 {
+    Q_OBJECT
 public:
     UdpReceiver();
     ~UdpReceiver();
@@ -18,9 +19,10 @@ public:
 private slots:
     void readData();
 
-private:
-    std::vector<MapObject*> mapObjects;
+signals:
+    void dataReceived(std::vector<MapObject> mapObjects);
 
+private:
     QUdpSocket *udpSocket;
 
 };
