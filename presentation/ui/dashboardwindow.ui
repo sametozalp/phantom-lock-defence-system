@@ -43,74 +43,7 @@
         <widget class="QWidget" name="rightColumn" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_5">
           <item>
-           <widget class="QWidget" name="vehicleDetail" native="true">
-            <layout class="QVBoxLayout" name="verticalLayout_4">
-             <item>
-              <widget class="QWidget" name="vehicleDetailTitle" native="true">
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QLabel" name="vehicleLogo">
-                  <property name="text">
-                   <string>🎯</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLabel" name="vehicleName">
-                  <property name="text">
-                   <string>vehicleName</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_2">
-                  <property name="orientation">
-                   <enum>Qt::Orientation::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>105</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </widget>
-             </item>
-             <item>
-              <layout class="QGridLayout" name="gridLayout">
-               <item row="0" column="0">
-                <widget class="QWidget" name="distanceGridItem" native="true">
-                 <layout class="QVBoxLayout" name="verticalLayout_3">
-                  <item>
-                   <widget class="QLabel" name="label_4">
-                    <property name="text">
-                     <string>Distance</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="distance">
-                    <property name="text">
-                     <string>1.2 km</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QPushButton" name="neutralizeButton">
-               <property name="text">
-                <string>Neutralize</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+           <widget class="VehicleDetail" name="vehicleDetail" native="true"/>
           </item>
           <item>
            <spacer name="verticalSpacer">
@@ -203,6 +136,12 @@
    <class>TopBar</class>
    <extends>QWidget</extends>
    <header location="global">topbar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>VehicleDetail</class>
+   <extends>QWidget</extends>
+   <header location="global">vehicledetail.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
