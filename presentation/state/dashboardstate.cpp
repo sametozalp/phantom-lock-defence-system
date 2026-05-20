@@ -9,11 +9,24 @@ DashboardState::DashboardState(QList<BaseReceiver*> receivers): receivers(receiv
     }
 }
 
+DashboardState::~DashboardState() {
+    for (std::pair<const int, MapObject*>& pair : mapObjectsState) {
+        delete pair.second;
+    }
+    mapObjectsState.clear();
+}
+
 void DashboardState::onRawDataReceived(QList<MapObject*> mapObjects)
 {
     if(mapObjects.size() > 0) {
         for(MapObject *m: mapObjects) {
-            mapObjectsState.emplace(m->getId(), m);
+            std::unordered_map<int, MapObject*>::iterator it = mapObjectsState.find(m->getId());
+
+            // != and end() are mean -> is it exist ?
+            if (it != mapObjectsState.end()) {
+                delete it->second;
+            }
+            mapObjectsState[m->getId()] = m;
         }
 
         emit objectsUpdated(mapObjectsState);

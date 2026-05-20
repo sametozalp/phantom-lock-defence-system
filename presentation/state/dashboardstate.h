@@ -11,6 +11,7 @@ class DashboardState: public QObject
     Q_OBJECT
 public:
     DashboardState(QList<BaseReceiver*> receivers);
+    ~DashboardState();
 
     MapObject* getMapObject(int id);
 
