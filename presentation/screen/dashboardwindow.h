@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "dashboardstate.h"
+#include "../component/map/mapmarker.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,5 +25,6 @@ private slots:
 private:
     Ui::DashboardWindow *ui;
     DashboardState *state;
+    MapMarker *mapMarker;
 };
 #endif // DASHBOARDWINDOW_H

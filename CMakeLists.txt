@@ -31,6 +31,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
         presentation/component/map/Map.qml
+        presentation/component/map/mapmarker.h presentation/component/map/mapmarker.cpp
         resources.qrc
         model/mapobject.h model/mapobject.cpp
         network/udpreceiver.h network/udpreceiver.cpp

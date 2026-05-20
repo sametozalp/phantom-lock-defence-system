@@ -12,6 +12,8 @@ public:
     MapObject(int id, float lat, float lon, QString name, float distance, float altitude, int speed);
 
     int getId();
+    float getLat();
+    float getLon();
 
 private:
     int id;

@@ -39,6 +39,40 @@ Rectangle {
         plugin: mapPlugin
         center: QtPositioning.coordinate(39.9334, 32.8597)
         zoomLevel: 12
+
+        MapItemView {
+            model: mapMarker.markers
+            delegate: MapQuickItem {
+                coordinate: QtPositioning.coordinate(modelData.lat, modelData.lon)
+                anchorPoint.x: image.width * 0.5
+                anchorPoint.y: image.height
+
+                sourceItem: Item {
+                    width: 40
+                    height: 50
+
+                    Rectangle {
+                        id: image
+                        width: 20
+                        height: 20
+                        radius: 10
+                        color: "red"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: parent.top
+                    }
+
+                    Text {
+                        text: modelData.id
+                        anchors.top: image.bottom
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.topMargin: 2
+                        font.pixelSize: 12
+                        font.bold: true
+                        color: "black"
+                    }
+                }
+            }
+        }
     }
 
     Rectangle {

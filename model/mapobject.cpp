@@ -13,3 +13,11 @@ MapObject::MapObject(int id, float lat, float lon, QString name, float distance,
 int MapObject::getId() {
     return this->id;
 }
+
+float MapObject::getLat() {
+    return this->lat;
+}
+
+float MapObject::getLon() {
+    return this->lon;
+}
