@@ -10,20 +10,19 @@ class DashboardState: public QObject
 {
     Q_OBJECT
 public:
-    DashboardState(std::vector<BaseReceiver*> receivers);
+    DashboardState(QList<BaseReceiver*> receivers);
 
-    MapObject getMapObject(int id);
+    MapObject* getMapObject(int id);
 
 public slots:
-    void onRawDataReceived(std::vector<MapObject> mapObjects);
+    void onRawDataReceived(QList<MapObject*> mapObjects);
 
 signals:
-    void objectsUpdated(std::unordered_map<int, MapObject> mapObjectsState);
+    void objectsUpdated(std::unordered_map<int, MapObject*> mapObjectsState);
 
 private:
-//    std::vector<MapObject> mapObjects;
-    std::vector<BaseReceiver*> receivers;
-    std::unordered_map<int, MapObject> mapObjectsState;
+    QList<BaseReceiver*> receivers;
+    std::unordered_map<int, MapObject*> mapObjectsState;
 };
 
 #endif // DASHBOARDSTATE_H

@@ -2,11 +2,14 @@
 #define MAPOBJECT_H
 
 #include <string>
+#include <QObject>
+#include <QString>
 
-class MapObject
+class MapObject : public QObject
 {
+    Q_OBJECT
 public:
-    MapObject(int id, float lat, float lon, std::string name, float distance, float altitude, int speed);
+    MapObject(int id, float lat, float lon, QString name, float distance, float altitude, int speed);
 
     int getId();
 
@@ -14,7 +17,7 @@ private:
     int id;
     float lat;
     float lon;
-    std::string name;
+    QString name;
     float distance;
     float altitude;
     int speed;

@@ -1,6 +1,6 @@
 #include "mapobject.h"
 
-MapObject::MapObject(int id, float lat, float lon, std::string name, float distance, float altitude, int speed) {
+MapObject::MapObject(int id, float lat, float lon, QString name, float distance, float altitude, int speed) {
     this->id = id;
     this->lat = lat;
     this->lon = lon;

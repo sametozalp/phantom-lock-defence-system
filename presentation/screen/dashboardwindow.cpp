@@ -16,7 +16,7 @@ DashboardWindow::~DashboardWindow()
     delete ui;
 }
 
-void DashboardWindow::refreshUI(std::unordered_map<int, MapObject> mapObjectsState)
+void DashboardWindow::refreshUI(std::unordered_map<int, MapObject*> mapObjectsState)
 {
     qDebug() << mapObjectsState.size();
 }

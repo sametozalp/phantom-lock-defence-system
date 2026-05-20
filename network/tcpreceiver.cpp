@@ -36,7 +36,7 @@ void TcpReceiver::readData()
 {
     if (!clientSocket) return;
 
-    std::vector<MapObject> mapObjects;
+    QList<MapObject*> mapObjects;
     QByteArray datagram = clientSocket->readAll();
     QJsonDocument doc = QJsonDocument::fromJson(datagram);
 
@@ -45,15 +45,15 @@ void TcpReceiver::readData()
         QJsonObject obj = doc.object();
 
         int id = obj["Id"].toInt();
-        std::string name = obj["Name"].toString().toStdString();
+        QString name = obj["Name"].toString();
         float lat = static_cast<float>(obj["Lat"].toDouble());
         float lon = static_cast<float>(obj["Lon"].toDouble());
         float distance = static_cast<float>(obj["Distance"].toDouble());
         float altitude = static_cast<float>(obj["Altitude"].toDouble());
         int speed = obj["Speed"].toInt();
 
-        MapObject mapObject(id, lat, lon, name, distance, altitude, speed);
-        mapObjects.push_back(mapObject);
+        MapObject *mapObject = new MapObject(id, lat, lon, name, distance, altitude, speed);
+        mapObjects.append(mapObject);
     }
 
     if (!mapObjects.empty()) {

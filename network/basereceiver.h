@@ -2,7 +2,6 @@
 #define BASERECEIVER_H
 #include <QObject>
 #include "mapobject.h"
-#include <vector>
 
 class BaseReceiver: public QObject
 {
@@ -14,7 +13,7 @@ protected slots:
     virtual void readData() = 0;
 
 signals:
-    void dataReceived(std::vector<MapObject> mapObjects);
+    void dataReceived(QList<MapObject*> mapObjects);
 };
 
 #endif // BASERECEIVER_H

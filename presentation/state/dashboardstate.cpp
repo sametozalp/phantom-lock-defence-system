@@ -1,7 +1,7 @@
 #include "dashboardstate.h"
 #include <iostream>
 
-DashboardState::DashboardState(std::vector<BaseReceiver*> receivers): receivers(receivers) {
+DashboardState::DashboardState(QList<BaseReceiver*> receivers): receivers(receivers) {
     for (BaseReceiver* receiver : receivers) {
         if (receiver) {
             connect(receiver, &BaseReceiver::dataReceived, this, &DashboardState::onRawDataReceived);
@@ -9,17 +9,17 @@ DashboardState::DashboardState(std::vector<BaseReceiver*> receivers): receivers(
     }
 }
 
-void DashboardState::onRawDataReceived(std::vector<MapObject> mapObjects)
+void DashboardState::onRawDataReceived(QList<MapObject*> mapObjects)
 {
     if(mapObjects.size() > 0) {
-        for(MapObject m: mapObjects) {
-            mapObjectsState.emplace(m.getId(), m);
+        for(MapObject *m: mapObjects) {
+            mapObjectsState.emplace(m->getId(), m);
         }
 
         emit objectsUpdated(mapObjectsState);
     }
 }
 
-MapObject DashboardState::getMapObject(int id) {
+MapObject* DashboardState::getMapObject(int id) {
     return this->mapObjectsState.at(id);
 }

@@ -26,7 +26,7 @@ Rectangle {
         }
     }
 
-    ListModel { id: markerModel }
+    ListModel { id: marker }
 
     Plugin {
         id: mapPlugin
