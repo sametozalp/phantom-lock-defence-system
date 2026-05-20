@@ -10,12 +10,18 @@ VehicleDetail::VehicleDetail(QWidget *parent)
 
 VehicleDetail::~VehicleDetail()
 {
+    delete mapObject;
     delete ui;
 }
 
 void VehicleDetail::setMapObject(MapObject *m) {
+    this->mapObject = m;
     this->ui->vehicleName->setText(m->getName());
     this->ui->distance->setText(QString::number(m->getDistance()) + " km");
     this->ui->altitude->setText(QString::number(m->getAltitude()) + " m");
     this->ui->speed->setText(QString::number(m->getSpeed()) + " km/h");
+}
+
+MapObject* VehicleDetail::getMapObject() {
+    return this->mapObject;
 }

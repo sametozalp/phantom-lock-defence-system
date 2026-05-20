@@ -17,9 +17,11 @@ public:
     ~VehicleDetail();
 
     void setMapObject(MapObject *m);
+    MapObject* getMapObject();
 
 private:
     Ui::VehicleDetail *ui;
+    MapObject *mapObject = nullptr;
 };
 
 #endif // VEHICLEDETAIL_H
