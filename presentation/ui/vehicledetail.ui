@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>260</width>
-    <height>162</height>
+    <height>232</height>
    </rect>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -24,7 +24,7 @@
       <item>
        <widget class="QLabel" name="vehicleName">
         <property name="text">
-         <string>vehicleName</string>
+         <string>UAV-01</string>
         </property>
        </widget>
       </item>
@@ -60,6 +60,46 @@
          <widget class="QLabel" name="distance">
           <property name="text">
            <string>1.2 km</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QWidget" name="altitudeGridItem" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Altitude</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="altitude">
+          <property name="text">
+           <string>450 m</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QWidget" name="speedGridItem" native="true">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Speed</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="speed">
+          <property name="text">
+           <string>54 km/h</string>
           </property>
          </widget>
         </item>
