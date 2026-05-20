@@ -21,6 +21,6 @@ void DashboardWindow::refreshUI(std::vector<MapObject> mapObjects)
     for (MapObject m: mapObjects)
     {
         // show on map
-        qDebug() << "data:" << m.getId();
+        qDebug() << "datam:" << m.getId();
     }
 }

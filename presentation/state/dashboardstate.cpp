@@ -1,8 +1,8 @@
 #include "dashboardstate.h"
 #include <iostream>
 
-DashboardState::DashboardState(UdpReceiver *udpReceiver): udpReceiver(udpReceiver) {
-    connect(udpReceiver, &UdpReceiver::dataReceived, this, &DashboardState::onRawDataReceived);
+DashboardState::DashboardState(BaseReceiver *receiver): receiver(receiver) {
+    connect(receiver, &BaseReceiver::dataReceived, this, &DashboardState::onRawDataReceived);
 }
 
 std::vector<MapObject> &DashboardState::getMapObjects() {

@@ -1,26 +1,22 @@
 #ifndef UDPRECEIVER_H
 #define UDPRECEIVER_H
 
-#include <vector>
-#include "mapobject.h"
 #include <QObject>
 #include <QUdpSocket>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDebug>
+#include "baseReceiver.h"
 
-class UdpReceiver: public QObject
+class UdpReceiver: public BaseReceiver
 {
     Q_OBJECT
 public:
     UdpReceiver();
     ~UdpReceiver();
 
-private slots:
-    void readData();
-
-signals:
-    void dataReceived(std::vector<MapObject> mapObjects);
+protected slots:
+    void readData() override;
 
 private:
     QUdpSocket *udpSocket;

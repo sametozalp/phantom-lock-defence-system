@@ -35,6 +35,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         model/mapobject.h model/mapobject.cpp
         network/udpreceiver.h network/udpreceiver.cpp
         presentation/state/dashboardstate.h presentation/state/dashboardstate.cpp
+        network/tcpreceiver.h network/tcpreceiver.cpp
+        network/basereceiver.h network/basereceiver.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET phantom-lock-defence-system APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

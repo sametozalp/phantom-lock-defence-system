@@ -3,13 +3,13 @@
 
 #include <QObject>
 #include "mapobject.h"
-#include "udpreceiver.h"
+#include "basereceiver.h"
 
 class DashboardState: public QObject
 {
     Q_OBJECT
 public:
-    DashboardState(UdpReceiver *udpReceiver);
+    DashboardState(BaseReceiver *receiver);
 
     std::vector<MapObject> &getMapObjects();
 
@@ -21,7 +21,7 @@ signals:
 
 private:
     std::vector<MapObject> mapObjects;
-    UdpReceiver *udpReceiver;
+    BaseReceiver *receiver;
 };
 
 #endif // DASHBOARDSTATE_H
