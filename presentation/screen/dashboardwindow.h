@@ -19,7 +19,7 @@ public:
     ~DashboardWindow() override;
 
 private slots:
-    void refreshUI(std::vector<MapObject> mapObjects);
+    void refreshUI(std::unordered_map<int, MapObject> mapObjectsState);
 
 private:
     Ui::DashboardWindow *ui;

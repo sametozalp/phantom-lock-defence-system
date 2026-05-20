@@ -9,12 +9,13 @@ DashboardState::DashboardState(std::vector<BaseReceiver*> receivers): receivers(
     }
 }
 
-std::vector<MapObject> &DashboardState::getMapObjects() {
-    return this->mapObjects;
-}
-
 void DashboardState::onRawDataReceived(std::vector<MapObject> mapObjects)
 {
-    if(mapObjects.size() > 0)
-        emit objectsUpdated(mapObjects);
+    if(mapObjects.size() > 0) {
+        for(MapObject m: mapObjects) {
+            mapObjectsState.emplace(m.getId(), m);
+        }
+
+        emit objectsUpdated(mapObjectsState);
+    }
 }

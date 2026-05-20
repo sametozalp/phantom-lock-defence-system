@@ -16,11 +16,7 @@ DashboardWindow::~DashboardWindow()
     delete ui;
 }
 
-void DashboardWindow::refreshUI(std::vector<MapObject> mapObjects)
+void DashboardWindow::refreshUI(std::unordered_map<int, MapObject> mapObjectsState)
 {
-    for (MapObject m: mapObjects)
-    {
-        // show on map
-        qDebug() << "datam:" << m.getId();
-    }
+    qDebug() << mapObjectsState.size();
 }

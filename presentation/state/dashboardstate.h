@@ -4,6 +4,7 @@
 #include <QObject>
 #include "mapobject.h"
 #include "basereceiver.h"
+#include <unordered_map>
 
 class DashboardState: public QObject
 {
@@ -11,17 +12,16 @@ class DashboardState: public QObject
 public:
     DashboardState(std::vector<BaseReceiver*> receivers);
 
-    std::vector<MapObject> &getMapObjects();
-
 public slots:
     void onRawDataReceived(std::vector<MapObject> mapObjects);
 
 signals:
-    void objectsUpdated(std::vector<MapObject> mapObjects);
+    void objectsUpdated(std::unordered_map<int, MapObject> mapObjectsState);
 
 private:
-    std::vector<MapObject> mapObjects;
+//    std::vector<MapObject> mapObjects;
     std::vector<BaseReceiver*> receivers;
+    std::unordered_map<int, MapObject> mapObjectsState;
 };
 
 #endif // DASHBOARDSTATE_H
