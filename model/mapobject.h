@@ -11,9 +11,13 @@ class MapObject : public QObject
 public:
     MapObject(int id, float lat, float lon, QString name, float distance, float altitude, int speed);
 
-    int getId();
-    float getLat();
-    float getLon();
+    int getId() const;
+    float getLat() const;
+    float getLon() const;
+    QString getName() const;
+    float getDistance() const;
+    float getAltitude() const;
+    int getSpeed() const;
 
 private:
     int id;

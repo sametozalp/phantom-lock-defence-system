@@ -12,3 +12,10 @@ VehicleDetail::~VehicleDetail()
 {
     delete ui;
 }
+
+void VehicleDetail::setMapObject(MapObject *m) {
+    this->ui->vehicleName->setText(m->getName());
+    this->ui->distance->setText(QString::number(m->getDistance()) + " km");
+    this->ui->altitude->setText(QString::number(m->getAltitude()) + " m");
+    this->ui->speed->setText(QString::number(m->getSpeed()) + " km/h");
+}
