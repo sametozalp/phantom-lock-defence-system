@@ -12,6 +12,8 @@ class DashboardState: public QObject
 public:
     DashboardState(std::vector<BaseReceiver*> receivers);
 
+    MapObject getMapObject(int id);
+
 public slots:
     void onRawDataReceived(std::vector<MapObject> mapObjects);
 

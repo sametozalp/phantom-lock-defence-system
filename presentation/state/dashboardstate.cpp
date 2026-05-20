@@ -19,3 +19,7 @@ void DashboardState::onRawDataReceived(std::vector<MapObject> mapObjects)
         emit objectsUpdated(mapObjectsState);
     }
 }
+
+MapObject DashboardState::getMapObject(int id) {
+    return this->mapObjectsState.at(id);
+}
