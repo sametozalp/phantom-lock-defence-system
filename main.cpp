@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     UdpReceiver udpReceiver;
     TcpReceiver tcpReceiver;
-    DashboardState state(&udpReceiver);
+    DashboardState state({&udpReceiver, &tcpReceiver});
     DashboardWindow w(&state);
     w.show();
     return QApplication::exec();

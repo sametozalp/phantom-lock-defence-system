@@ -9,7 +9,7 @@ class DashboardState: public QObject
 {
     Q_OBJECT
 public:
-    DashboardState(BaseReceiver *receiver);
+    DashboardState(std::vector<BaseReceiver*> receivers);
 
     std::vector<MapObject> &getMapObjects();
 
@@ -21,7 +21,7 @@ signals:
 
 private:
     std::vector<MapObject> mapObjects;
-    BaseReceiver *receiver;
+    std::vector<BaseReceiver*> receivers;
 };
 
 #endif // DASHBOARDSTATE_H
