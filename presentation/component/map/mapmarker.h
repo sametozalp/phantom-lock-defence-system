@@ -18,6 +18,10 @@ public:
 
 signals:
     void markersChanged();
+    void markerClicked(int id);
+
+public slots:
+    Q_INVOKABLE void onMarkerClicked(int id);
 
 private:
     QVariantList m_markers;

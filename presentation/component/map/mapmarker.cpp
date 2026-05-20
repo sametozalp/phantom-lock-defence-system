@@ -17,3 +17,8 @@ void MapMarker::setMarkers(const QVariantList &markers)
         emit markersChanged();
     }
 }
+
+void MapMarker::onMarkerClicked(int id)
+{
+    emit markerClicked(id);
+}

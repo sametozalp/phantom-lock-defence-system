@@ -13,6 +13,7 @@ DashboardWindow::DashboardWindow(DashboardState *state, QWidget *parent)
 {
     ui->setupUi(this);
     connect(state, &DashboardState::objectsUpdated, this, &DashboardWindow::refreshUI);
+    connect(mapMarker, &MapMarker::markerClicked, this, &DashboardWindow::showVehicleDetail);
     
     ui->quickWidget->rootContext()->setContextProperty("mapMarker", mapMarker);
 }

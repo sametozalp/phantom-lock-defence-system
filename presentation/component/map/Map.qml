@@ -70,6 +70,13 @@ Rectangle {
                         font.bold: true
                         color: "black"
                     }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: {
+                            mapMarker.onMarkerClicked(modelData.id)
+                        }
+                    }
                 }
             }
         }
