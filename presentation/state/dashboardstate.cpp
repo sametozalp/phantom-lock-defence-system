@@ -36,3 +36,14 @@ void DashboardState::onRawDataReceived(QList<MapObject*> mapObjects)
 MapObject* DashboardState::getMapObject(int id) {
     return this->mapObjectsState.at(id);
 }
+
+int DashboardState::getSelectedMarkerId() const {
+    return selectedMarkerId;
+}
+
+void DashboardState::setSelectedMarkerId(int id) {
+    if (selectedMarkerId != id) {
+        selectedMarkerId = id;
+        emit selectedMarkerChanged(id);
+    }
+}

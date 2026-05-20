@@ -13,6 +13,7 @@ DashboardWindow::DashboardWindow(DashboardState *state, QWidget *parent)
 {
     ui->setupUi(this);
     connect(state, &DashboardState::objectsUpdated, this, &DashboardWindow::refreshUI);
+    connect(state, &DashboardState::selectedMarkerChanged, this, &DashboardWindow::showVehicleDetail);
     connect(mapMarker, &MapMarker::markerClicked, this, &DashboardWindow::showVehicleDetail);
     
     ui->quickWidget->rootContext()->setContextProperty("mapMarker", mapMarker);
@@ -37,9 +38,17 @@ void DashboardWindow::refreshUI(std::unordered_map<int, MapObject*> mapObjectsSt
     }
     
     mapMarker->setMarkers(markers);
+    
+    if (state->getSelectedMarkerId() != -1) {
+        MapObject *m = state->getMapObject(state->getSelectedMarkerId());
+        if (m) {
+            ui->vehicleDetail->setMapObject(m);
+        }
+    }
 }
 
 void DashboardWindow::showVehicleDetail(int id) {
+    state->setSelectedMarkerId(id);
     MapObject *m = state->getMapObject(id);
     ui->vehicleDetail->setMapObject(m);
 }
