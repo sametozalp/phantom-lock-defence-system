@@ -19,6 +19,8 @@ public:
     explicit DashboardWindow(DashboardState *state, QWidget *parent = nullptr);
     ~DashboardWindow() override;
 
+    void showVehicleDetail(int id);
+
 private slots:
     void refreshUI(std::unordered_map<int, MapObject*> mapObjectsState);
 

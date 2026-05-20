@@ -37,3 +37,8 @@ void DashboardWindow::refreshUI(std::unordered_map<int, MapObject*> mapObjectsSt
     
     mapMarker->setMarkers(markers);
 }
+
+void DashboardWindow::showVehicleDetail(int id) {
+    MapObject *m = state->getMapObject(id);
+    ui->vehicleDetail->setMapObject(m);
+}
